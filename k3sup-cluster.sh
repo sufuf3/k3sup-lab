@@ -1,10 +1,10 @@
 #!/bin/bash
 #
-# $ kubectl get no
-# NAME           STATUS   ROLES    AGE     VERSION
-# node-2         Ready    worker   30s     v1.15.4-k3s.1
-# node-1         Ready    worker   4m54s   v1.15.4-k3s.1
-# k3sup-master   Ready    master   8m7s    v1.15.4-k3s.1
+# $ kubectl get no -o wide
+# NAME           STATUS   ROLES    AGE   VERSION         INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+# node-2         Ready    worker   23m   v1.15.4-k3s.1   192.168.0.203   <none>        Ubuntu 18.04.3 LTS   4.15.0-64-generic   containerd://1.2.8-k3s.1
+# node-1         Ready    worker   27m   v1.15.4-k3s.1   192.168.0.202   <none>        Ubuntu 18.04.3 LTS   4.15.0-64-generic   containerd://1.2.8-k3s.1
+# k3sup-master   Ready    master   30m   v1.15.4-k3s.1   192.168.0.200   <none>        Ubuntu 18.04.3 LTS   4.15.0-64-generic   containerd://1.2.8-k3s.1
 
 export SERVER_IP="192.168.0.200"
 export NODE1_IP="192.168.0.202"
