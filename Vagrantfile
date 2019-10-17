@@ -26,7 +26,6 @@ Vagrant.configure(2) do |config|
     node.vm.provision "shell", inline: <<-SHELL
       IPADDR=$(ip a show enp0s8 | grep "inet " | awk '{print $2}' | cut -d / -f1)
       cat ~/id_rsa.pub | tee -a /home/vagrant/.ssh/authorized_keys
-      cp ~/id_rsa /home/vagrant/.ssh/id_rsa
       export UBUNTU_APT_SITE=free.nchc.org.tw
       sed -i 's/^deb-src\ /\#deb-src\ /g' /etc/apt/sources.list
       sed -E -i "s/([a-z]+.)?archive.ubuntu.com/$UBUNTU_APT_SITE/g" /etc/apt/sources.list
@@ -38,7 +37,6 @@ Vagrant.configure(2) do |config|
       echo "Host 192.168.0.*" | tee -a ssh-config
       echo "    StrictHostKeyChecking no" | tee -a ssh-config
       echo "    UserKnownHostsFile=/dev/null" | tee -a ssh-config
-     'EOF"
     SHELL
   end
 
